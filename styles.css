@@ -1,22 +1,22 @@
 .body {
-    background-color: #640855;
+    background-color: #444457;
 }
 
 .navbar {
     overflow: hidden;
-    background-color: yellow;
+    background-color: #1F2041;
 }
 
 .navbar a {
     float: left;
     display: block;
-    color: red;
+    color: #6B7FD7;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #19381F;
+    color: #00A6A6;
 }
