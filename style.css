@@ -1,13 +1,18 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 40px;
+.navbar {
+    overflow: hidden;
+    background-color: #333;
 }
 
-h1 {
-    color: #12d30b;
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-p {
-    color: #201a7a;
-    line-height: 1.5;
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
 }
