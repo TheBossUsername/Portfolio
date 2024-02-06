@@ -3,6 +3,7 @@ body {
     font-family: 'Lucida Console', monospace;
     color: #000000;
     background-color: #FFFFFF;
+    align-items: center;
 }
 
 .navbar {
@@ -44,7 +45,9 @@ body {
 
 .welcome-quote {
     font-size: 2em;
-    width: 50%;
+    width: 40%;
     margin-left: 10%;
-    margin-top: 80px; 
+    margin-top: 10%; 
+    align-items: center;
+    text-align: center;
 }
