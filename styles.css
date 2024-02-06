@@ -8,12 +8,14 @@ body {
     background-color: #000000;
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: #FFFFFF;
-    text-align: center;
-    text-decoration: none;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    overflow: hidden;
+    background-color: #000000;
 }
 
 .navbar a:hover {
