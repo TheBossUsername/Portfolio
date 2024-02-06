@@ -10,7 +10,10 @@ body {
     right: 0;
     height: 70px;
     overflow: hidden;
-    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.navbar a {
     color: #000000;
 }
 
