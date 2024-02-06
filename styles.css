@@ -41,3 +41,10 @@ body {
     color: #5603AD;
     border-color: #5603AD; /* Change the border color */
 }
+
+.welcome-quote {
+    font-size: 2em;
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 80px; 
+}
