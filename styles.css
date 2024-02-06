@@ -26,6 +26,7 @@ body {
 .navbar .links {
     display: flex;
     gap: 20px;
+    align-items: center; 
 }
 
 .navbar .links a {
@@ -36,7 +37,7 @@ body {
 .navbar .links a.active {
     color: #5603AD;
     border: 2px solid #5603AD; 
-    border-radius: 5px; 
+    border-radius: 3px; 
     padding: 10px 20px; 
     text-decoration: none;
 }
