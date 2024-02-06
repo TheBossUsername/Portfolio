@@ -10,7 +10,10 @@ body {
     right: 0;
     height: 70px;
     overflow: hidden;
+    background-color: #001cb9;
     color: #000000;
+    font-size: 20px; 
+    font-family: Arial, sans-serif; 
 }
 
 
