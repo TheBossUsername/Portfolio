@@ -34,9 +34,9 @@ body {
 }
 
 .navbar .links a.active {
-    color: #499167;
-    border: 2px solid #499167; 
-    border-radius: 50%; 
+    color: #5603AD;
+    border: 2px solid #5603AD; 
+    border-radius: 5px; 
     padding: 10px 20px; 
     text-decoration: none;
 }
