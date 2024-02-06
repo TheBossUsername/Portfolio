@@ -10,12 +10,9 @@ body {
     right: 0;
     height: 70px;
     overflow: hidden;
-    color: #FFFFFF;
-}
-
-.navbar a {
     color: #000000;
 }
+
 
 .navbar a:hover {
     background-color: #000000;
