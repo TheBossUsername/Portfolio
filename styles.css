@@ -4,21 +4,17 @@ body {
 }
 
 .navbar {
-    overflow: hidden;
-    background-color: #000000;
-}
-
-.navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 70px;
     overflow: hidden;
-    background-color: #000000;
+    background-color: #FFFFFF;
+    color: #000000;
 }
 
 .navbar a:hover {
-    background-color: #FFFFFF;
-    color: #757575;
+    background-color: #000000;
+    color: #FFFFFF;
 }
