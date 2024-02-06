@@ -32,12 +32,13 @@ body {
 .navbar .links a {
     color: #000000;
     text-decoration: none;
+    padding: 10px 20px; 
+    box-sizing: border-box; 
 }
 
 .navbar .links a.active {
     color: #5603AD;
     border: 2px solid #5603AD; 
     border-radius: 3px; 
-    padding: 10px 20px; 
     text-decoration: none;
 }
