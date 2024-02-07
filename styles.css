@@ -35,12 +35,12 @@ body {
     text-decoration: none;
     padding: 10px 20px;
     box-sizing: border-box;
-    border: 2px solid transparent; /* Add a transparent border */
+    border: 2px solid transparent; 
 }
 
 .navbar .links a.active {
     color: #5603AD;
-    border-color: #5603AD; /* Change the border color */
+    border-color: #5603AD; 
 }
 
 .welcome-quote {
