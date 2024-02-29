@@ -6,7 +6,7 @@ body {
     grid-template-rows: 108px repeat(8, 351px);
     font-family: 'Verdana', sans-serif;
     color: #000000;
-    background-color: #f8f9fa;
+    background-color: #DEE2E6;
     font-size: 2em;
 }
 
@@ -46,9 +46,14 @@ body {
     grid-column: 1 / 3; 
     grid-row: 2 / 4; 
     font-size: 2.5em;
-    padding-top: 15%;
+    padding-top: 10%;
     text-align: center; 
-    background-color: #e9ecef;
+    background-color: #ADB5BD;
+    flex-direction: column;
+}
+
+.welcome {
+    font-size: 1.5em;
 }
 
 .welcome-gif {
@@ -57,18 +62,18 @@ body {
     grid-row: 2 / 4; 
     justify-content: center; 
     align-items: center;
-    background-color: #e9ecef;
+    background-color: #ADB5BD;
 }
 
 .project-quote {
     display: flex;
     grid-column: 3 / 5; 
     grid-row: 4; 
-    font-size: 2.5em;
+    font-size: 2em;
     text-align: center; 
     justify-content: center; 
     align-items: center;
-    background-color: #e9ecef;
+    background-color: #CED4DA;
 }
 
 .project-gif {
@@ -77,22 +82,59 @@ body {
     grid-row: 4 / 6; 
     justify-content: center; 
     align-items: center;
-    background-color: #e9ecef;
+    background-color: #CED4DA;
 }
 
 .project-button-background {
     grid-column: 3 / 5; 
     grid-row: 5; 
-    background-color: #e9ecef;
+    background-color: #CED4DA;
     display: grid; 
 }
 
 .project-button {
-    font-size: 1em;
-    display: inline-block; 
-    justify-content: center; 
-    align-items: center; 
+    font-size: 2em;
+    display: flex; 
+    margin: auto;
     text-align: center;
-    cursor: pointer; 
-    margin: auto; 
+    background-image: linear-gradient(144deg,#9A05F0, #0509F0,#057AF0);
+    border: 0;
+    border-radius: 30px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #DEE2E6;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    line-height: 1em;
+    padding: 3px;
+}
+
+
+.project-button:active,
+.project-button:hover {
+  outline: 0;
+}
+
+.project-button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.project-button:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .project-button {
+    font-size: 2em;
+    min-width: 196px;
+  }
 }
