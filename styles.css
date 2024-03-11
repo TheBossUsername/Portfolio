@@ -73,7 +73,7 @@ body {
     text-align: center; 
     justify-content: center; 
     align-items: center;
-    background-color: #CED4DA;
+    background-color: #6C757D;
 }
 
 .project-gif {
@@ -82,13 +82,13 @@ body {
     grid-row: 4 / 6; 
     justify-content: center; 
     align-items: center;
-    background-color: #CED4DA;
+    background-color: #6C757D;
 }
 
 .project-button-background {
     grid-column: 3 / 5; 
     grid-row: 5; 
-    background-color: #CED4DA;
+    background-color: #6C757D;
     display: grid; 
 }
 
@@ -134,6 +134,81 @@ body {
 
 @media (min-width: 768px) {
   .project-button {
+    font-size: 2em;
+    min-width: 196px;
+  }
+}
+
+
+.resume-quote {
+    display: flex;
+    grid-column: 1 / 3; 
+    grid-row: 6; 
+    font-size: 2em;
+    text-align: center; 
+    justify-content: center; 
+    align-items: center;
+    background-color: #CED4DA;
+}
+
+.resume-gif {
+    display: flex;
+    grid-column: 3 / 5; 
+    grid-row: 6 / 8; 
+    justify-content: center; 
+    align-items: center;
+    background-color: #CED4DA;
+}
+
+.resume-button-background {
+    grid-column: 1 / 3; 
+    grid-row: 7; 
+    background-color: #CED4DA;
+    display: grid; 
+}
+
+.resume-button {
+    font-size: 2em;
+    display: flex; 
+    margin: auto;
+    text-align: center;
+    background-image: linear-gradient(144deg,#ffaf01, #00a0a0,#1302ff);
+    border: 0;
+    border-radius: 30px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #DEE2E6;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    line-height: 1em;
+    padding: 3px;
+}
+
+
+.resume-button:active,
+.resume-button:hover {
+  outline: 0;
+}
+
+.resume-button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.resume-button:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .resume-button {
     font-size: 2em;
     min-width: 196px;
   }
