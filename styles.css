@@ -1,3 +1,10 @@
+.common-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -11,13 +18,10 @@ body {
 }
 
 .navbar {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
-    width: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .navbar .links {
@@ -42,12 +46,10 @@ body {
 }
 
 .welcome-quote {
-    display: flex;
     grid-column: 1 / 3; 
     grid-row: 2 / 4; 
     font-size: 2.5em;
     padding-top: 10%;
-    text-align: center; 
     background-color: #ADB5BD;
     flex-direction: column;
 }
@@ -57,31 +59,21 @@ body {
 }
 
 .welcome-gif {
-    display: flex;
     grid-column: 3 / 5; 
     grid-row: 2 / 4; 
-    justify-content: center; 
-    align-items: center;
     background-color: #ADB5BD;
 }
 
 .project-quote {
-    display: flex;
     grid-column: 3 / 5; 
     grid-row: 4; 
     font-size: 2em;
-    text-align: center; 
-    justify-content: center; 
-    align-items: center;
     background-color: #6C757D;
 }
 
 .project-gif {
-    display: flex;
     grid-column: 1 / 3; 
     grid-row: 4 / 6; 
-    justify-content: center; 
-    align-items: center;
     background-color: #6C757D;
 }
 
@@ -92,9 +84,9 @@ body {
     display: grid; 
 }
 
-.project-button {
+.button {
+    display: flex;
     font-size: 2em;
-    display: flex; 
     margin: auto;
     text-align: center;
     background-image: linear-gradient(144deg,#9A05F0, #0509F0,#057AF0);
@@ -113,13 +105,12 @@ body {
     padding: 3px;
 }
 
-
-.project-button:active,
-.project-button:hover {
+.button:active,
+.button:hover {
   outline: 0;
 }
 
-.project-button span {
+.button span {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px;
   border-radius: 30px;
@@ -128,35 +119,27 @@ body {
   transition: 300ms;
 }
 
-.project-button:hover span {
+.button:hover span {
   background: none;
 }
 
 @media (min-width: 768px) {
-  .project-button {
+  .button {
     font-size: 2em;
     min-width: 196px;
   }
 }
 
-
 .resume-quote {
-    display: flex;
     grid-column: 1 / 3; 
     grid-row: 6; 
     font-size: 2em;
-    text-align: center; 
-    justify-content: center; 
-    align-items: center;
     background-color: #CED4DA;
 }
 
 .resume-gif {
-    display: flex;
     grid-column: 3 / 5; 
     grid-row: 6 / 8; 
-    justify-content: center; 
-    align-items: center;
     background-color: #CED4DA;
 }
 
@@ -167,71 +150,16 @@ body {
     display: grid; 
 }
 
-.resume-button {
-    font-size: 2em;
-    display: flex; 
-    margin: auto;
-    text-align: center;
-    background-image: linear-gradient(144deg,#ffaf01, #00bec4,#0230ff);
-    border: 0;
-    border-radius: 30px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    box-sizing: border-box;
-    color: #DEE2E6;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-    line-height: 1em;
-    padding: 3px;
-}
-
-
-.resume-button:active,
-.resume-button:hover {
-  outline: 0;
-}
-
-.resume-button span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 30px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
-}
-
-.resume-button:hover span {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .resume-button {
-    font-size: 2em;
-    min-width: 196px;
-  }
-}
-
-
 .about-quote {
-  display: flex;
   grid-column: 3 / 5; 
   grid-row: 8; 
   font-size: 2em;
-  text-align: center; 
-  justify-content: center; 
-  align-items: center;
   background-color: #ADB5BD;
 }
 
 .about-gif {
-  display: flex;
   grid-column: 1 / 3; 
   grid-row: 8 / 10; 
-  justify-content: center; 
-  align-items: center;
   background-color: #ADB5BD;
 }
 
@@ -242,70 +170,16 @@ body {
   display: grid; 
 }
 
-.about-button {
-  font-size: 2em;
-  display: flex; 
-  margin: auto;
-  text-align: center;
-  background-image: linear-gradient(144deg,#07c500, #00a0ac,#0104c9);
-  border: 0;
-  border-radius: 30px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
-  color: #DEE2E6;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-  line-height: 1em;
-  padding: 3px;
-}
-
-
-.about-button:active,
-.about-button:hover {
-outline: 0;
-}
-
-.about-button span {
-background-color: rgb(5, 6, 45);
-padding: 16px 24px;
-border-radius: 30px;
-width: 100%;
-height: 100%;
-transition: 300ms;
-}
-
-.about-button:hover span {
-background: none;
-}
-
-@media (min-width: 768px) {
-.about-button {
-  font-size: 2em;
-  min-width: 196px;
-}
-}
-
 .contact-quote {
-  display: flex;
   grid-column: 1 / 3; 
   grid-row: 10; 
   font-size: 2em;
-  text-align: center; 
-  justify-content: center; 
-  align-items: center;
   background-color: #6C757D;
 }
 
 .contact-gif {
-  display: flex;
   grid-column: 3 / 5; 
   grid-row: 10 / 12; 
-  justify-content: center; 
-  align-items: center;
   background-color: #6C757D;
 }
 
@@ -314,51 +188,4 @@ background: none;
   grid-row: 11; 
   background-color: #6C757D;
   display: grid; 
-}
-
-.contact-button {
-  font-size: 2em;
-  display: flex; 
-  margin: auto;
-  text-align: center;
-  background-image: linear-gradient(144deg,#006572, #009c75,#c94001);
-  border: 0;
-  border-radius: 30px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
-  color: #DEE2E6;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-  line-height: 1em;
-  padding: 3px;
-}
-
-
-.contact-button:active,
-.contact-button:hover {
-outline: 0;
-}
-
-.contact-button span {
-background-color: rgb(5, 6, 45);
-padding: 16px 24px;
-border-radius: 30px;
-width: 100%;
-height: 100%;
-transition: 300ms;
-}
-
-.contact-button:hover span {
-background: none;
-}
-
-@media (min-width: 768px) {
-.contact-button {
-  font-size: 2em;
-  min-width: 196px;
-}
 }
