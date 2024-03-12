@@ -17,11 +17,41 @@ body {
     font-size: 2em;
 }
 
+.quote {
+    padding: 10%;
+    padding-top: 20%;
+}
+
 .navbar {
   grid-column: 1 / -1;
   grid-row: 1;
   width: 100%;
   justify-content: space-between;
+  z-index: 10;
+}
+
+.shadow{
+  box-shadow:     
+  -1px 1px 0px #495057,
+  -2px 2px 0px #495057,
+  -3px 3px 0px #495057,
+  -4px 4px 0px #495057,
+  -5px 5px 0px #495057,
+  -6px 6px 0px #495057,
+  -7px 7px 5px #000000,
+  -8px 8px 5px #050505,
+  -9px 9px 5px #0a0a0a,
+  -10px 10px 5px #0f0f0f,
+  -11px 11px 5px #141414,
+  -12px 12px 5px #191919,
+  -13px 13px 5px #1e1e1e,
+  -14px 14px 5px #232323,
+  -15px 15px 5px #282828,
+  -16px 16px 5px #2d2d2d,
+  -17px 17px 5px #323232,
+  -18px 18px 5px #373737,
+  -19px 19px 5px #3c3c3c,
+  -20px 20px 5px #414141;
 }
 
 .navbar .links {
@@ -37,44 +67,53 @@ body {
 }
 
 .navbar .name {
+  color: #6C757D;
     padding-left: 5%; 
+    text-shadow: -1px 1px 1px #343A40,
+        -2px 2px 1px #343A40,
+        -3px 3px 1px #343A40,
+        -4px 4px 1px #343A40,
+    -5px 5px 5px #000000,
+    -10px 10px 10px #313131,
+    -20px 20px 20px #797979;
 }
+
 
 .navbar .links a.active {
     color: #00397A;
     border-color: #00397A; 
 }
 
-.welcome-quote {
+.welcome.quote {
     grid-column: 1 / 3; 
     grid-row: 2 / 4; 
     font-size: 2.5em;
-    padding-top: 10%;
     background-color: #ADB5BD;
     flex-direction: column;
-}
-
-.welcome {
-    font-size: 1.5em;
+    padding-top: 10%;
+    z-index: 9;
 }
 
 .welcome-gif {
     grid-column: 3 / 5; 
     grid-row: 2 / 4; 
     background-color: #ADB5BD;
+    z-index: 9;
 }
 
-.project-quote {
+.project.quote {
     grid-column: 3 / 5; 
     grid-row: 4; 
     font-size: 2em;
     background-color: #6C757D;
+    z-index: 8;
 }
 
 .project-gif {
     grid-column: 1 / 3; 
     grid-row: 4 / 6; 
     background-color: #6C757D;
+    z-index: 8;
 }
 
 .project-button-background {
@@ -82,6 +121,7 @@ body {
     grid-row: 5; 
     background-color: #6C757D;
     display: grid; 
+    z-index: 8;
 }
 
 .button {
@@ -130,17 +170,19 @@ body {
   }
 }
 
-.resume-quote {
+.resume.quote {
     grid-column: 1 / 3; 
     grid-row: 6; 
     font-size: 2em;
     background-color: #CED4DA;
+    z-index: 7;
 }
 
 .resume-gif {
     grid-column: 3 / 5; 
     grid-row: 6 / 8; 
     background-color: #CED4DA;
+    z-index: 7;
 }
 
 .resume-button-background {
@@ -148,19 +190,22 @@ body {
     grid-row: 7; 
     background-color: #CED4DA;
     display: grid; 
+    z-index: 7;
 }
 
-.about-quote {
+.about.quote {
   grid-column: 3 / 5; 
   grid-row: 8; 
   font-size: 2em;
   background-color: #ADB5BD;
+  z-index: 6;
 }
 
 .about-gif {
   grid-column: 1 / 3; 
   grid-row: 8 / 10; 
   background-color: #ADB5BD;
+  z-index: 6;
 }
 
 .about-button-background {
@@ -168,19 +213,22 @@ body {
   grid-row: 9; 
   background-color: #ADB5BD;
   display: grid; 
+  z-index: 6;
 }
 
-.contact-quote {
+.contact.quote {
   grid-column: 1 / 3; 
   grid-row: 10; 
   font-size: 2em;
   background-color: #6C757D;
+  z-index: 5;
 }
 
 .contact-gif {
   grid-column: 3 / 5; 
   grid-row: 10 / 12; 
   background-color: #6C757D;
+  z-index: 5;
 }
 
 .contact-button-background {
@@ -188,4 +236,5 @@ body {
   grid-row: 11; 
   background-color: #6C757D;
   display: grid; 
+  z-index: 5;
 }
