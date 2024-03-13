@@ -96,9 +96,10 @@ links a.active {
     z-index: 9;
 }
 
-.welcome.quote wel{
-  font-size: 2em;
+.welcome w{
+font-size: 2em;
 }
+
 
 .welcome-gif {
     grid-column: 3 / 5; 
