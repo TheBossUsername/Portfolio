@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <div class="navbar common-flex shadow">
-    <h1 class="name">Brenden Scott</h1>
-    <div class="links">
+  <navbar class="navbar common-flex shadow">
+    <name>Brenden Scott</name>
+    <links>
       <a href="index.html" class="active">Home</a>
       <a href="projects.html">Projects</a>
       <a href="resume.html">Resume</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-    </div>
-  </div>
+    </links>
+  </navbar>
 
   <div class="welcome-gif common-flex shadow">
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
@@ -22,63 +23,71 @@
   </div>
   
   <div class="welcome quote common-flex shadow">
-    Welcome to my portfolio! Stay as long as you would like.
+    <wel>Welcome,</wel> <br> to my portfolio! The snapshot of my capabilities.
   </div>
 
-  <div class="project quote common-flex shadow">
-    Feel free to check out my projects!
+  <div class="project quote common-flex shadow" data-aos="slide-left">
+    Check out my up to date library of projects!
   </div>
 
-  <div class="project-button-background shadow">
+  <div class="project-button-background shadow" data-aos="slide-left" data-aos-offset="200">
     <a href="projects.html" class="button project-button" role="button"><span class="text">PROJECTS</span></a>
   </div>
 
-  <div class="project-gif common-flex shadow">
+  <div class="project-gif common-flex shadow" data-aos="slide-right">
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
       <dotlottie-player src="https://lottie.host/e5bc65f7-e2c8-43e4-9f64-0702c4cd0c53/wSfAWhVPjl.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
   </div>
 
-  <div class="resume-gif common-flex shadow">
+  <div class="resume-gif common-flex shadow" data-aos="slide-left">
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
       <dotlottie-player src="https://lottie.host/0e5d3952-12e7-4a4d-a5da-2a6efcc60c33/BWsEYHIaOt.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
   </div>
 
-  <div class="resume quote common-flex shadow">
+  <div class="resume quote common-flex shadow" data-aos="slide-right">
     Unlock a concise overview of my career on my online resume.
   </div>
 
 
-  <div class="resume-button-background shadow">
+  <div class="resume-button-background shadow" data-aos="slide-right" data-aos-offset="200">
     <a href="resume.html" class="button resume-button" role="button"><span class="text">RESUME</span></a>
   </div>
 
-  <div class="about quote common-flex shadow">
+  <div class="about quote common-flex shadow" data-aos="slide-left">
     Want to know more about me outside of my career? 
   </div>
 
-  <div class="about-button-background shadow">
+  <div class="about-button-background shadow" data-aos="slide-left" data-aos-offset="200">
     <a href="about.html" class="button about-button" role="button"><span class="text">ABOUT</span></a>
   </div>
 
-  <div class="about-gif common-flex shadow">
+  <div class="about-gif common-flex shadow" data-aos="slide-right">
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
       <dotlottie-player src="https://lottie.host/1434a6ca-813f-4e95-ac24-10b05c946076/oTIQt8dUCS.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
   </div>
 
-  <div class="contact-gif common-flex shadow">
+  <div class="contact-gif common-flex shadow" data-aos="slide-left">
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
       <dotlottie-player src="https://lottie.host/665cbe57-99f7-4bc6-b612-38051a47cf97/MWIB7QalXR.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
   </div>
 
-  <div class="contact quote common-flex shadow">
+  <div class="contact quote common-flex shadow" data-aos="slide-right">
     Feel free to contact me me via email or LinkedIn!
   </div>
 
 
-  <div class="contact-button-background shadow">
+  <div class="contact-button-background shadow" data-aos="slide-right" data-aos-offset="200">
     <a href="contact.html" class="button contact-button" role="button"><span class="text">CONTACT</span></a>
   </div>
   
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+  once: true,
+  offset:"400",
+  easing:"ease",
+  duration:"1000",
+});
+  </script>
 </body>
 </html>

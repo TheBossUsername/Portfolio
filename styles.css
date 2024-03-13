@@ -54,11 +54,11 @@ body {
   -20px 20px 5px #414141;
 }
 
-.navbar .links {
+links {
     padding-right: 5%; 
 }
 
-.navbar .links a {
+links a {
     color: #000000;
     text-decoration: none;
     padding: .1em .2em;
@@ -66,20 +66,22 @@ body {
     border: .4vmin solid transparent; 
 }
 
-.navbar .name {
-  color: #6C757D;
-    padding-left: 5%; 
-    text-shadow: -1px 1px 1px #343A40,
-        -2px 2px 1px #343A40,
-        -3px 3px 1px #343A40,
-        -4px 4px 1px #343A40,
-    -5px 5px 5px #000000,
-    -10px 10px 10px #313131,
-    -20px 20px 20px #797979;
+name {
+  color: #ffffff;
+  padding-left: 5%; 
+  text-shadow: 
+  -1px 1px 1px #343A40,
+  -2px 2px 1px #343A40,
+  -3px 3px 1px #343A40,
+  -4px 4px 1px #343A40,
+  -5px 5px 5px #000000,
+  -10px 10px 10px #313131,
+  -20px 20px 20px #797979;
+  font-size: 2em;
 }
 
 
-.navbar .links a.active {
+links a.active {
     color: #00397A;
     border-color: #00397A; 
 }
@@ -87,11 +89,15 @@ body {
 .welcome.quote {
     grid-column: 1 / 3; 
     grid-row: 2 / 4; 
-    font-size: 2.5em;
+    font-size: 2em;
     background-color: #ADB5BD;
     flex-direction: column;
-    padding-top: 10%;
+    padding-top: 0px;
     z-index: 9;
+}
+
+.welcome.quote wel{
+  font-size: 2em;
 }
 
 .welcome-gif {
