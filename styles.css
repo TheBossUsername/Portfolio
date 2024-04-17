@@ -472,7 +472,7 @@ font-size: 2em;
 
 .about-history{
   z-index: 5;
-  background-color: #DEE2E6;
+  background-color: #CED4DA;
   grid-row: 3;
   grid-column: 2;
   justify-content: center;
@@ -494,7 +494,7 @@ font-size: 2em;
 
 .about-goals{
   z-index: 5;
-  background-color: #CED4DA;
+  background-color: #ADB5BD;
   grid-row: 3;
   grid-column: 3;
   justify-content: center;
