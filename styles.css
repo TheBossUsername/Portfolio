@@ -521,3 +521,25 @@ font-size: 2em;
   color: #000000;
   background-color: #DEE2E6;
 }
+
+.email-block {
+  background-color: #ADB5BD;
+  z-index: 10;
+  margin: 7%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.email-block a:hover {
+  text-decoration: underline #000000;
+  font-size: 1.5em;
+}
+
+.email-block a {
+  text-decoration: underline #000000;
+  color: #000000;
+  font-size: 1.5em;
+}
