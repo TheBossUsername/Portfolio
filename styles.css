@@ -15,6 +15,12 @@
     color: #000000;
     background-color: #DEE2E6;
     font-size: 2em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .title {
@@ -36,6 +42,12 @@
     color: #000000;
     background-color: #DEE2E6;
     font-size: 2em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .project-1-background {
@@ -305,7 +317,11 @@ font-size: 2em;
     padding: 3px;
 }
 
-.button:active,
+.button:active{
+  box-shadow: rgba(151, 65, 252, 0.2) 0 8px 20px -5px;
+  transform: translateY(4px);
+}
+
 .button:hover {
   outline: 0;
 }
@@ -408,6 +424,12 @@ font-size: 2em;
   color: #000000;
   background-color: #DEE2E6;
   font-size: 2em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .resume-pdf {
@@ -425,6 +447,12 @@ font-size: 2em;
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .about-page h1 {
@@ -520,26 +548,49 @@ font-size: 2em;
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
+  font-size: 2em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.email-block {
+
+
+.contact-block p {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(0,77,184,1) 0%, rgba(0,28,168,1) 50%, rgba(10,0,147,1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  margin: 0;
+}
+
+.contact-block {
   background-color: #ADB5BD;
+  display: grid; 
   z-index: 10;
   margin: 7%;
   position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
-  text-decoration: none;
 }
 
-.email-block a:hover {
+.contact-page h1 {
   text-decoration: underline #000000;
-  font-size: 1.5em;
+  margin: 0;
+  padding: 0;
 }
 
-.email-block a {
-  text-decoration: underline #000000;
-  color: #000000;
+.small-contact{
+  font-size: 1.1em;
+}
+
+.large-contact{
   font-size: 1.5em;
 }

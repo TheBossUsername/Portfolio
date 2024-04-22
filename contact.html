@@ -16,17 +16,34 @@
         </links>
       </navbar>
 
-    <div class="email-block shadow">
+    <div class="contact-block shadow">
       <h1>Email</h1>
-      <a href= "mailto: scot226@live.com">scot226@live.com</a>
+      <p class="large-contact">scot226@live.com</p>
+      <button onclick="copyText()"class="button" role="button"><span class="text">Copy Email</span></button>
     </div>
 
-    <div class="linkedin-block">
+    <script>
+      function copyText() {
+          navigator.clipboard.writeText
+              ("scot226@live.com");
+      }
 
+      function copyPhone() {
+          navigator.clipboard.writeText
+              ("208-970-4179");
+      }
+  </script>
+
+    <div class="contact-block shadow">
+      <h1>LinkedIn</h1>
+      <p class="small-contact">linkedin.com/in/brenden-s</p>
+      <a href="https://www.linkedin.com/in/brenden-s/" target="_blank" class="button" role="button"><span class="text">Profile</span></a>
     </div>
       
-    <div class="phone-block">
-      
+    <div class="contact-block shadow">
+      <h1>Phone</h1>
+      <p class="large-contact">208-970-4179</p>
+      <button onclick="copyPhone()"class="button" role="button"><span class="text">Copy Phone</span></button>
     </div>
 
 </body>
