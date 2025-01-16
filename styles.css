@@ -605,6 +605,6 @@ font-size: 2em;
 /* Styles for devices with a max width of 768px (commonly tablets and phones) */
 @media only screen and (max-width: 768px) {
   name {
-    font-size: 2em;
+    font-size: 1em;
   }
 }
