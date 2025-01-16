@@ -600,3 +600,11 @@ font-size: 2em;
 .large-contact{
   font-size: 1.5em;
 }
+
+
+/* Styles for devices with a max width of 768px (commonly tablets and phones) */
+@media only screen and (max-width: 768px) {
+  name {
+    font-size: 2em;
+  }
+}
