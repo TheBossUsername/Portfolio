@@ -602,9 +602,32 @@ font-size: 2em;
 }
 
 
-/* Styles for devices with a max width of 768px (commonly tablets and phones) */
-@media only screen and (max-width: 768px) {
+@media all and (min-width:960px) and (max-width: 1024px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:801px) and (max-width: 959px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:769px) and (max-width: 800px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:569px) and (max-width: 768px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+  /* put your css styles in here */
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
   name {
     font-size: .5em;
   }
+}
+
+@media all and (min-width:0px) and (max-width: 320px) {
+  /* put your css styles in here */
 }
