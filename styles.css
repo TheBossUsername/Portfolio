@@ -454,7 +454,7 @@ font-size: 2em;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
-  grid-template-rows: 3em repeat(2, 13em);
+  grid-template-rows: 3em 15em 127em;
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
