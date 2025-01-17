@@ -16,7 +16,7 @@ body, html {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: 108px repeat(10, 351px);
+    grid-template-rows: 3em repeat(10, 11em);
     font-family: 'Verdana', sans-serif;
     color: #000000;
     background-color: #DEE2E6;
@@ -27,11 +27,12 @@ body, html {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    overflow: hidden;
 }
 
 .title {
   grid-row: 1;
-    font-size: 1.5em;
+    font-size: 1em;
     text-decoration: underline #000000;
     font-family: 'Trebuchet MS', sans-serif;
     margin: 0;
@@ -43,7 +44,7 @@ body, html {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: 108px repeat(2, 440px);
+    grid-template-rows: 3em repeat(2, 15em);
     font-family: 'Verdana', sans-serif;
     color: #000000;
     background-color: #DEE2E6;
@@ -54,6 +55,7 @@ body, html {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    overflow: hidden;
 }
 
 .project-1-background {
@@ -66,10 +68,11 @@ body, html {
 
 .project-description {
     grid-row: 2;
+    font-size: .8em;
 }
 
 .project-image{
-    width: 80%;
+    width: 70%;
     height: 100%;
     grid-row: 3;
     object-fit: cover;
@@ -96,7 +99,7 @@ body, html {
   grid-row: 4;
   margin: auto;
   position: relative;
-  padding: .3em 1em;
+  padding: .3em .5em;
   outline: none;
   border: 2px solid #001eff;
   background: #343A40;
@@ -249,6 +252,7 @@ name {
   -10px 10px 10px #313131,
   -20px 20px 20px #797979;
   font-size: 2em;
+  white-space: nowrap;
 }
 
 
@@ -260,7 +264,7 @@ links a.active {
 .welcome.quote {
     grid-column: 1 / 3; 
     grid-row: 2 / 4; 
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: #ADB5BD;
     flex-direction: column;
     padding-top: 0px;
@@ -282,7 +286,7 @@ font-size: 2em;
 .project.quote {
     grid-column: 3 / 5; 
     grid-row: 4; 
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: #6C757D;
     z-index: 8;
 }
@@ -355,7 +359,7 @@ font-size: 2em;
 .resume.quote {
     grid-column: 1 / 3; 
     grid-row: 6; 
-    font-size: 2em;
+    font-size: 1.5em;
     background-color: #CED4DA;
     z-index: 7;
 }
@@ -378,7 +382,7 @@ font-size: 2em;
 .about.quote {
   grid-column: 3 / 5; 
   grid-row: 8; 
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #ADB5BD;
   z-index: 6;
 }
@@ -401,7 +405,7 @@ font-size: 2em;
 .contact.quote {
   grid-column: 1 / 3; 
   grid-row: 10; 
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #6C757D;
   z-index: 5;
 }
@@ -425,7 +429,7 @@ font-size: 2em;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-rows: 108px 860px;
+  grid-template-rows: 3em 26em;
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
@@ -436,10 +440,11 @@ font-size: 2em;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
 }
 
 .resume-pdf {
-  height: 860px;
+  height: 37em;
   width: 100%;
 }
 
@@ -449,7 +454,7 @@ font-size: 2em;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
-  grid-template-rows: 108px repeat(2, 440px);
+  grid-template-rows: 3em repeat(2, 13em);
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
@@ -550,7 +555,7 @@ font-size: 2em;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
-  grid-template-rows: 108px repeat(2, 440px);
+  grid-template-rows: 3em repeat(2, 13em);
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
@@ -599,35 +604,4 @@ font-size: 2em;
 
 .large-contact{
   font-size: 1.5em;
-}
-
-
-@media all and (min-width:960px) and (max-width: 1024px) {
-  /* put your css styles in here */
-}
-
-@media all and (min-width:801px) and (max-width: 959px) {
-  /* put your css styles in here */
-}
-
-@media all and (min-width:769px) and (max-width: 800px) {
-  /* put your css styles in here */
-}
-
-@media all and (min-width:569px) and (max-width: 768px) {
-  /* put your css styles in here */
-}
-
-@media all and (min-width:481px) and (max-width: 568px) {
-  /* put your css styles in here */
-}
-
-@media all and (min-width:321px) and (max-width: 480px) {
-  name {
-    font-size: .5em;
-  }
-}
-
-@media all and (min-width:0px) and (max-width: 320px) {
-  /* put your css styles in here */
 }
