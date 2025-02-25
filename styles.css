@@ -429,7 +429,7 @@ font-size: 2em;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-rows: 3em 26em;
+  grid-template-rows: 3em min-content;
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
