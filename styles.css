@@ -454,7 +454,7 @@ font-size: 2em;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 33.33%);
-  grid-template-rows: 3em 12em;
+  grid-template-rows: 3em 15em min-content;
   font-family: 'Verdana', sans-serif;
   color: #000000;
   background-color: #DEE2E6;
@@ -484,6 +484,9 @@ font-size: 2em;
   grid-column: 1 / -1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .about-pic-1 {
@@ -491,6 +494,7 @@ font-size: 2em;
   height: 100%;
   object-fit: cover;
   grid-column: 1;
+  grid-row: 2;
 }
 
 .about-pic-2 {
@@ -500,6 +504,7 @@ font-size: 2em;
   grid-column: 2;
   border-left: #000000 2px solid;
   border-right: #000000 2px solid;
+  grid-row: 2;
 }
 
 .about-pic-3 {
@@ -507,6 +512,7 @@ font-size: 2em;
   height: 100%;
   object-fit: cover;
   grid-column: 3;
+  grid-row: 2;
 }
 
 .about-history{
@@ -519,7 +525,7 @@ font-size: 2em;
   text-align: center;
   border-left: #000000 2px solid;
   border-right: #000000 2px solid;
-  font-size: .6em;
+  font-size: 1em;
 }
 
 .about-hobbies{
@@ -530,7 +536,7 @@ font-size: 2em;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: .6em;
+  font-size: 1em;
 }
 
 .about-goals{
@@ -541,7 +547,7 @@ font-size: 2em;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: .6em;
+  font-size: 1em;
 }
 
 .goal {
@@ -553,7 +559,7 @@ font-size: 2em;
 }
 
 .contact-page {
-  font-size: 1.5em;
+  font-size: 2em;
   margin: 0;
   padding: 0;
   display: grid;
@@ -592,16 +598,18 @@ font-size: 2em;
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 }
 
 .contact-page h1 {
   text-decoration: underline #000000;
   margin: 0;
   padding: 0;
+  font-size: 1.7em;
 }
 
 .small-contact{
-  font-size: .8em;
+  font-size: .6em;
 }
 
 .large-contact{
