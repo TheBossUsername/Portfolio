@@ -351,9 +351,19 @@ font-size: 2em;
 
 @media (min-width: 768px) {
   .button {
-    font-size: 1.4em;
+    font-size: 2em;
     min-width: 1em;
   }
+}
+
+@media (min-width: 768px) {
+  .button {
+    font-size: 2em;
+    min-width: 1em;
+  }
+  .contact-button{
+    font-size: 1.3em;
+}
 }
 
 .resume.quote {
