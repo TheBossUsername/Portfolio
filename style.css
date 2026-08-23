@@ -1,0 +1,144 @@
+/* --- GLOBAL DASHBOARD STYLES --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Consolas', 'Courier New', monospace; 
+    background-color: #0b1120; 
+}
+
+.bento-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+/* --- THE STATIONARY MONITOR HARDWARE --- */
+.monitor-bezel {
+    background-color: #111827; 
+    padding: 16px; 
+    border-radius: 16px;
+    display: block;
+    width: 100%;
+    min-height: 250px;
+    box-sizing: border-box;
+    text-decoration: none; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.05); 
+    cursor: pointer;
+    overflow: hidden; 
+}
+
+/* --- THE RIGID SCREEN BACKGROUND (CRT Monitor Style) --- */
+.monitor-screen {
+    background-color: #121824; /* Darker, phosphor-like void */
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    
+    /* Heavy deep bezel shadow + subtle green/blue CRT phosphor ambient glow */
+    box-shadow: inset 0 15px 35px rgba(0, 0, 0, 0.8),
+                inset 0 0 40px rgba(0, 120, 212, 0.08); 
+}
+
+/* 1. CRT Scanlines Overlay */
+.monitor-screen::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(
+        rgba(18, 24, 36, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px; /* Creates the horizontal lines */
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* 2. CRT Screen Vignette (Darker corners like a curved tube) */
+.monitor-screen::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+/* Ensure content sits above the CRT scanlines but below the flashlight glow */
+.screen-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* The dynamic flashlight glow mapped to mouse coordinates */
+.cursor-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    background: radial-gradient(
+        circle 60px at var(--mouse-x, -500px) var(--mouse-y, -500px),
+        rgba(0, 120, 212, 0.6) 0%,
+        rgba(0, 120, 212, 0.15) 50%,
+        transparent 85%
+    );
+    opacity: 0;
+    
+    /* Changed from 0.3s to 1.0s with a smooth custom cubic-bezier curve */
+    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* When hovering the bezel, the glow slowly energizes and powers on */
+.monitor-bezel:hover .cursor-glow {
+    opacity: 1;
+}
+
+
+/* --- THE DATA TEXT (Pushed forward for 3D depth) --- */
+.terminal-text {
+    color: #0078D4; 
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); 
+    text-shadow: 0 0 12px rgba(0, 120, 212, 0.4); 
+    transform: translateZ(30px); /* Floats above the tilting surface */
+}
+
+.screen-data {
+    color: #9CA3AF; 
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    margin-top: 12px;
+    transform: translateZ(15px); /* Floats slightly less for layered depth */
+}
+
+/* --- HOVER EFFECT: GLOW ACTIVATES WHEN MOUSE ENTERS THE BEZEL --- */
+@media (hover: hover) and (pointer: fine) {
+    .monitor-bezel:hover .monitor-screen {
+        /* The screen edges light up with an Azure Blue glow ONLY when near/hovered */
+        box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.6),
+                    inset 0 0 25px rgba(0, 120, 212, 0.4),
+                    0 0 15px rgba(0, 120, 212, 0.25); /* Outer edge ambient light */
+    }
+}

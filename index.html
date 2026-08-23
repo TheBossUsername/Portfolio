@@ -1,93 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Via Azure - Monitor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="home">
+<body class="dashboard-bg">
 
-  <navbar class="navbar common-flex shadow">
-    <name>Brenden Scott</name>
-    <links>
-      <a href="./" class="active">Home</a>
-      <a href="./projects">Projects</a>
-      <a href="./resume">Resume</a>
-      <a href="./about">About</a>
-      <a href="./contact">Contact</a>
-    </links>
-  </navbar>
+    <!-- The Modular Grid Wrapper -->
+    <main class="bento-dashboard">
 
-  <div class="welcome-gif common-flex shadow">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/201c2f6e-676c-4cda-8afe-5dfd2e89ba27/UqFV0Ou62o.json" background="transparent" speed=".5" style="width: 702; height: 702px;" loop autoplay></dotlottie-player>
-  </div>
-  
-  <div class="welcome quote common-flex shadow">
-    <div><w>Welcome,</w> <br> to my portfolio!</div> <br> The snapshot of my capabilities.
-  </div>
+      <a href="./projects.html" class="monitor-bezel monitor-featured">
+          <div class="monitor-screen" id="edgeGlowBox">
+              
+              <!-- A single dynamic light layer that follows your cursor -->
+              <div class="cursor-glow"></div>
 
-  <div class="project quote common-flex shadow" data-aos="slide-left">
-    Check out the library of my projects!
-  </div>
+              <!-- Your Tilting Content -->
+              <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03" data-tilt-mobile="false">
+                  <h2 class="terminal-text">>_ PORTFOLIO VIA AZURE</h2>
+                  <p class="screen-data">View Serverless CI/CD Architecture & IaC</p>
+              </div>
 
-  <div class="project-button-background shadow" data-aos="slide-left" data-aos-offset="200">
-    <a href="projects.html" class="button" role="button"><span class="text">PROJECTS</span></a>
-  </div>
+          </div>
+      </a>
 
-  <div class="project-gif common-flex shadow" data-aos="slide-right">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/e5bc65f7-e2c8-43e4-9f64-0702c4cd0c53/wSfAWhVPjl.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
-  </div>
+    </main>
 
-  <div class="resume-gif common-flex shadow" data-aos="slide-left">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/0e5d3952-12e7-4a4d-a5da-2a6efcc60c33/BWsEYHIaOt.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
-  </div>
-
-  <div class="resume quote common-flex shadow" data-aos="slide-right">
-    An outline of my work history and experience.
-  </div>
-
-
-  <div class="resume-button-background shadow" data-aos="slide-right" data-aos-offset="200">
-    <a href="resume.html" class="button" role="button"><span class="text">RESUME</span></a>
-  </div>
-
-  <div class="about quote common-flex shadow" data-aos="slide-left">
-    Want to know more about me outside of my career? 
-  </div>
-
-  <div class="about-button-background shadow" data-aos="slide-left" data-aos-offset="200">
-    <a href="about.html" class="button" role="button"><span class="text">ABOUT</span></a>
-  </div>
-
-  <div class="about-gif common-flex shadow" data-aos="slide-right">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/1434a6ca-813f-4e95-ac24-10b05c946076/oTIQt8dUCS.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
-  </div>
-
-  <div class="contact-gif common-flex shadow" data-aos="slide-left">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-      <dotlottie-player src="https://lottie.host/665cbe57-99f7-4bc6-b612-38051a47cf97/MWIB7QalXR.json" background="transparent" speed=".5" style="width: 600; height: 600px;" loop autoplay></dotlottie-player>
-  </div>
-
-  <div class="contact quote common-flex shadow" data-aos="slide-right">
-    Feel free to contact me me via email or LinkedIn!
-  </div>
-
-
-  <div class="contact-button-background shadow" data-aos="slide-right" data-aos-offset="200">
-    <a href="contact.html" class="button" role="button"><span class="text">CONTACT</span></a>
-  </div>
-  
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({
-  once: true,
-  offset:"400",
-  easing:"ease",
-  duration:"1000",
-});
-  </script>
+    <!-- Load Vanilla-Tilt.js first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    
+    <!-- Load your custom script -->
+    <script src="script.js"></script>
 </body>
 </html>
