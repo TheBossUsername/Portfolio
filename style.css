@@ -19,6 +19,15 @@ body, html {
     box-sizing: border-box;
 }
 
+.monitor-wide {
+    /* Spans two columns on large screens */
+    grid-column: span 2; 
+}
+
+.monitor-tall {
+    /* Spans two rows on large screens */
+    grid-row: span 2; 
+}
 
 /* --- THE STATIONARY MONITOR HARDWARE --- */
 .monitor-bezel {
@@ -228,4 +237,35 @@ body, html {
 .monitor-bezel:hover .glass-imperfections {
     /* Bumped this up to 1 so the dust shines brightly under your cursor */
     opacity: 1; 
+}
+
+.monitor-screen .shine {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.monitor-screen .shine::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 55%;
+    width: 150%;
+    padding-bottom: 150%;
+    transform: translateX(-50%);
+    filter: blur(35px);
+    background-image: conic-gradient(from 205deg at 50% 50%, transparent 0deg, #0078D4 25deg, rgba(0, 120, 212, 0.18) 295deg, transparent 360deg);
+}
+
+.monitor-screen .background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+}
+
+/* --- THE HOVER TRIGGERS --- */
+.monitor-screen:hover .shine {
+    opacity: 1;
 }
