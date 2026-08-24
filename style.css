@@ -1,4 +1,7 @@
-/* --- GLOBAL DASHBOARD STYLES --- */
+:root {
+    --noise-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -29,13 +32,42 @@ body, html {
     text-decoration: none; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
                 inset 0 1px 1px rgba(255, 255, 255, 0.05); 
-    cursor: pointer;
     overflow: hidden; 
 }
 
-/* --- THE RIGID SCREEN BACKGROUND (CRT Monitor Style) --- */
+/* 2. THE CUSTOM DIGITAL CURSOR (Standard Arrow) */
+.crt-cursor {
+    position: absolute;
+    left: var(--mouse-x, -100px);
+    top: var(--mouse-y, -100px);
+    
+    /* Standard cursor size */
+    width: 24px;
+    height: 24px;
+    
+    /* A standard white arrow with a black outline encoded as an SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='white' stroke='black' stroke-width='1.2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.45 0 .67-.54.35-.85L5.5 3.21z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    /* Keeps the actual "clicking" point perfectly aligned with the top-left tip of the arrow */
+    transform: translate(0, 0); 
+    
+    /* CRUCIAL Z-INDEX TRICK */
+    z-index: 5; /* Sits ABOVE the glow (3), but UNDER the scanlines (10) */
+    pointer-events: none; 
+    
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* --- THE FLUSH GLASS SCREEN --- */
 .monitor-screen {
-    background-color: #121824; /* Darker, phosphor-like void */
+    background-color: rgba(31, 41, 55, 0.6); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     border-radius: 8px;
@@ -48,10 +80,10 @@ body, html {
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    transition: box-shadow 0.8s ease-in-out 0.1s, border 0.8s ease-in-out 0.1s;
     
-    /* Heavy deep bezel shadow + subtle green/blue CRT phosphor ambient glow */
-    box-shadow: inset 0 15px 35px rgba(0, 0, 0, 0.8),
-                inset 0 0 40px rgba(0, 120, 212, 0.08); 
+    /* ADDED cursor: none; HERE INSTEAD */
+    cursor: none; 
 }
 
 /* 1. CRT Scanlines Overlay */
@@ -60,62 +92,68 @@ body, html {
     display: block;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(
-        rgba(18, 24, 36, 0) 50%, 
-        rgba(0, 0, 0, 0.25) 50%
-    );
-    background-size: 100% 4px; /* Creates the horizontal lines */
-    z-index: 1;
+    
+    /* A very faint alternating dark line (low opacity) */
+    background: linear-gradient(rgba(18, 24, 36, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+    background-size: 100% 4px; /* Space between the lines */
+    
+    z-index: 10;
     pointer-events: none;
-    opacity: 0.6;
+    
+    /* Slowly scrolls the lines down to make the monitor feel "alive" */
+    animation: scrollLines 1.2s linear infinite;
 }
 
-/* 2. CRT Screen Vignette (Darker corners like a curved tube) */
+/* --- PERMANENT DUAL CORNER GLARES --- */
 .monitor-screen::after {
     content: " ";
     display: block;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9);
-    z-index: 2;
+    z-index: 11;
     pointer-events: none;
     border-radius: 8px;
+    
+    background-image: var(--noise-texture);
+    
+    /* 
+        Stacked Masks:
+        1. Top-Left Glare (135deg) - tighter % makes it smaller/tucked in the corner
+        2. Bottom-Right Glare (315deg) - opposite angle for the bottom corner
+    */
+    -webkit-mask-image: 
+        linear-gradient(135deg, black 0%, transparent 14%),
+        linear-gradient(315deg, black 0%, transparent 14%);
+        
+    mask-image: 
+        linear-gradient(135deg, black 0%, transparent 14%),
+        linear-gradient(315deg, black 0%, transparent 14%);
+    
+    opacity: 0.5; /* Adjust this to make both glares more or less subtle */
 }
 
-/* Ensure content sits above the CRT scanlines but below the flashlight glow */
 .screen-content {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    /* 1. FORCE THE INVISIBLE BOX TO FILL THE WHOLE SCREEN */
+    width: 100%;
+    height: 100%;
+    
+    /* 2. RE-CENTER THE TEXT VERTICALLY */
+    justify-content: center; 
+    
     transform-style: preserve-3d;
     will-change: transform;
 }
 
-/* The dynamic flashlight glow mapped to mouse coordinates */
-.cursor-glow {
-    position: absolute;
-    inset: 0;
-    z-index: 4;
-    pointer-events: none;
-    background: radial-gradient(
-        circle 60px at var(--mouse-x, -500px) var(--mouse-y, -500px),
-        rgba(0, 120, 212, 0.6) 0%,
-        rgba(0, 120, 212, 0.15) 50%,
-        transparent 85%
-    );
-    opacity: 0;
-    
-    /* Changed from 0.3s to 1.0s with a smooth custom cubic-bezier curve */
-    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* When hovering the bezel, the glow slowly energizes and powers on */
-.monitor-bezel:hover .cursor-glow {
+.monitor-bezel:hover .crt-cursor {
     opacity: 1;
 }
-
 
 /* --- THE DATA TEXT (Pushed forward for 3D depth) --- */
 .terminal-text {
@@ -133,12 +171,61 @@ body, html {
     transform: translateZ(15px); /* Floats slightly less for layered depth */
 }
 
-/* --- HOVER EFFECT: GLOW ACTIVATES WHEN MOUSE ENTERS THE BEZEL --- */
-@media (hover: hover) and (pointer: fine) {
-    .monitor-bezel:hover .monitor-screen {
-        /* The screen edges light up with an Azure Blue glow ONLY when near/hovered */
-        box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.6),
-                    inset 0 0 25px rgba(0, 120, 212, 0.4),
-                    0 0 15px rgba(0, 120, 212, 0.25); /* Outer edge ambient light */
-    }
+/* --- THE SIMPLIFIED EDGE BLEED --- */
+.glass-edge-bleed {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 6; 
+    
+    /* 1. A permanent, solid inner white glow on all 4 edges */
+    box-shadow: inset 0 0 6px 2px rgba(255, 255, 255, 0.4);
+        
+    /* 2. The Magic: A mask that hides the entire border EXCEPT right where your mouse is */
+    -webkit-mask-image: radial-gradient(circle 100px at calc(var(--mouse-x, -500px) + 10px) calc(var(--mouse-y, -500px) + 10px), black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 100px at calc(var(--mouse-x, -500px) + 10px) calc(var(--mouse-y, -500px) + 10px), black 0%, transparent 100%);
+    
+    opacity: 0; 
+    transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+
+/* Syncs with your other glows to power on slowly when the mouse enters */
+.monitor-bezel:hover .glass-edge-bleed {
+    opacity: 1;
+}
+
+@keyframes scrollLines {
+    0% { background-position: 0 0; }
+    /* Moves exactly one "line height" down to create an infinite loop */
+    100% { background-position: 0 4px; } 
+}
+
+
+/* --- SURFACE IMPERFECTIONS (Dust/Grain) --- */
+/* --- SURFACE IMPERFECTIONS (High-Visibility Version) --- */
+.glass-imperfections {
+    position: absolute;
+    inset: 0;
+    z-index: 11; 
+    pointer-events: none;
+    border-radius: 8px;
+    
+    /* 
+       1. Changed baseFrequency from '0.85' to '0.45' (Makes the dust chunks bigger)
+       2. Changed SVG opacity from '0.15' to '0.4' (Makes the dust brighter)
+    */
+    background-image: var(--noise-texture);
+    
+    /* --- THE NUDGED DUST MASK --- */
+    -webkit-mask-image: radial-gradient(circle 50px at calc(var(--mouse-x, -500px) + 10px) calc(var(--mouse-y, -500px) + 10px), black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 50px at calc(var(--mouse-x, -500px) + 10px) calc(var(--mouse-y, -500px) + 10px), black 0%, transparent 100%);
+    
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.monitor-bezel:hover .glass-imperfections {
+    /* Bumped this up to 1 so the dust shines brightly under your cursor */
+    opacity: 1; 
 }
