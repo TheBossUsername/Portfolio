@@ -16,3 +16,36 @@ screens.forEach((box) => {
     });
     
 });
+
+/* --- EMAIL CLICK-TO-COPY LOGIC --- */
+const emailMonitor = document.getElementById('email-monitor');
+const emailTitle = document.getElementById('email-title');
+const emailAddress = document.getElementById('email-address');
+
+if (emailMonitor) {
+    emailMonitor.addEventListener('click', () => {
+        // 1. Write the email to the clipboard
+        navigator.clipboard.writeText('brenden.scott.it@outlook.com').then(() => {
+            
+            // 2. Temporarily change the text
+            const originalTitle = emailTitle.innerText;
+            const originalAddress = emailAddress.innerText;
+            
+            emailTitle.innerText = 'Copied!';
+            emailAddress.innerText = 'Saved to clipboard.';
+            
+            // Optional: Flash the text a success color (like a bright green)
+            emailTitle.style.color = '#10b981'; 
+
+            // 3. Reset everything back to normal after 2 seconds (2000 milliseconds)
+            setTimeout(() => {
+                emailTitle.innerText = originalTitle;
+                emailAddress.innerText = originalAddress;
+                emailTitle.style.color = ''; // Resets back to your CSS Azure Blue
+            }, 2000);
+            
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    });
+}

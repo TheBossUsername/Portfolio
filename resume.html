@@ -1,24 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Portfolio Via Azure</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="resume-page">
+<body class="dashboard-bg">
 
-  <navbar class="navbar common-flex shadow">
-      <name>Brenden Scott</name>
-      <links>
-        <a href="./">Home</a>
-        <a href="./projects">Projects</a>
-        <a href="./resume" class="active">Resume</a>
-        <a href="./about">About</a>
-        <a href="./contact">Contact</a>
-      </links>
-  </navbar>
+    <!-- THE PARTICLES BACKGROUND -->
+    <div id="particles-js"></div>
 
-  <object class="resume-pdf" data="Brenden Scott's Resume.pdf" type="application/pdf">
-    <p><a href="Brenden Scott's Resume.pdf" target="_blank">Download Resume</a></p>
-  </object>
+    <!-- NEW CUSTOM LAYOUT FOR THE RESUME PAGE -->
+    <main class="resume-layout">
 
+        <!-- 1. THE MASSIVE PDF VIEWER (No Glass, No Bezel) -->
+        <div class="pdf-container">
+            <object data="./Brenden_Scott_Resume.pdf" type="application/pdf" class="pdf-object">
+                <p>Your browser does not support PDFs. <a href="./Brenden_Scott_Resume.pdf">Download the PDF</a>.</p>
+            </object>
+        </div>
+
+        <!-- 2. THE SIDEBAR BUTTONS -->
+        <div class="resume-sidebar">
+            
+            <!-- BACK TO HOME BUTTON -->
+            <a href="./index.html" class="monitor-bezel monitor-featured">
+                <div class="monitor-screen">
+                    <div class="glass-edge-bleed"></div>
+                    <div class="glass-imperfections"></div>
+                    <div class="glass-glare"></div>
+                    <div class="crt-cursor"></div> 
+                    <div class="shine"></div>
+                    <div class="line line-1"></div>
+                    
+                    <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03">
+                        <h2 class="terminal-text">< Home</h2>
+                        <p class="screen-data">Return to Dashboard</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- DOWNLOAD BUTTON -->
+            <a href="./Brenden_Scott_Resume.pdf" download class="monitor-bezel monitor-featured">
+                <div class="monitor-screen">
+                    <div class="glass-edge-bleed"></div>
+                    <div class="glass-imperfections"></div>
+                    <div class="glass-glare"></div>
+                    <div class="crt-cursor"></div> 
+                    <div class="shine"></div>
+                    <div class="line line-1"></div>
+                    
+                    <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03">
+                        <h2 class="terminal-text">Download</h2>
+                        <p class="screen-data">Save a local copy</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('Particles config loaded successfully!');
+        });
+    </script>
 </body>
 </html>

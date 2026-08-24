@@ -1,50 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio Via Azure</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="contact-page">
+<body class="dashboard-bg">
 
-    <navbar class="navbar common-flex shadow">
-        <name>Brenden Scott</name>
-        <links>
-          <a href="./">Home</a>
-          <a href="./projects">Projects</a>
-          <a href="./resume">Resume</a>
-          <a href="./about">About</a>
-          <a href="./contact" class="active">Contact</a>
-        </links>
-      </navbar>
+    <!-- THE PARTICLES BACKGROUND -->
+    <div id="particles-js"></div>
 
-    <div class="contact-block shadow">
-      <h1>Email</h1>
-      <p class="large-contact">scot226@live.com</p>
-      <button onclick="copyText()"class="button contact-button" role="button"><span class="text">Copy Email</span></button>
-    </div>
+    <main class="bento-dashboard">
 
+        <!-- 1. BACK TO HOME -->
+        <a href="./index.html" class="monitor-bezel monitor-featured">
+            <div class="monitor-screen">
+                <div class="glass-edge-bleed"></div>
+                <div class="glass-imperfections"></div>
+                <div class="glass-glare"></div>
+                <div class="crt-cursor"></div> 
+                <div class="shine"></div>
+                <div class="line line-1"></div>
+                
+                <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03">
+                    <h2 class="terminal-text">< Home</h2>
+                    <p class="screen-data">Return to Dashboard</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- 2. EMAIL (Click to Copy) -->
+        <!-- Added ID "email-monitor" for JavaScript targeting -->
+        <div class="monitor-bezel monitor-featured" id="email-monitor">
+            <div class="monitor-screen">
+                <div class="glass-edge-bleed"></div>
+                <div class="glass-imperfections"></div>
+                <div class="glass-glare"></div>
+                <div class="crt-cursor"></div> 
+                <div class="shine"></div>
+                <div class="line line-1"></div>
+                
+                <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03">
+                    <!-- Added IDs to text so we can swap them with JS -->
+                    <h2 class="terminal-text" id="email-title">Email</h2>
+                    <p class="screen-data" id="email-address">brenden.scott.it@outlook.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. LINKEDIN (Opens in new tab) -->
+        <!-- target="_blank" opens the new tab, rel="noopener" is a security best practice -->
+        <a href="https://www.linkedin.com/in/brenden-s/" target="_blank" rel="noopener noreferrer" class="monitor-bezel monitor-featured">
+            <div class="monitor-screen">
+                <div class="glass-edge-bleed"></div>
+                <div class="glass-imperfections"></div>
+                <div class="glass-glare"></div>
+                <div class="crt-cursor"></div> 
+                <div class="shine"></div>
+                <div class="line line-1"></div>
+                
+                <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03">
+                    <h2 class="terminal-text">LinkedIn</h2>
+                    <p class="screen-data">Connect with me professionally</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- 4. GITHUB (Recommended addition!) -->
+        <a href="https://github.com/BrendenScott" target="_blank" rel="noopener noreferrer" class="monitor-bezel monitor-featured">
+            <div class="monitor-screen">
+                <div class="glass-edge-bleed"></div>
+                <div class="glass-imperfections"></div>
+                <div class="glass-glare"></div>
+                <div class="crt-cursor"></div> 
+                <div class="shine"></div>
+                <div class="line line-1"></div>
+                
+                <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03">
+                    <h2 class="terminal-text">GitHub</h2>
+                    <p class="screen-data">View my code repositories</p>
+                </div>
+            </div>
+        </a>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-      function copyText() {
-          navigator.clipboard.writeText
-              ("scot226@live.com");
-      }
-
-      function copyPhone() {
-          navigator.clipboard.writeText
-              ("208-970-4179");
-      }
-  </script>
-
-    <div class="contact-block shadow">
-      <h1>LinkedIn</h1>
-      <p class="small-contact">linkedin.com/in/brenden-s</p>
-      <a href="https://www.linkedin.com/in/brenden-s/" target="_blank" class="button contact-button" role="button"><span class="text">Profile</span></a>
-    </div>
-      
-    <div class="contact-block shadow">
-      <h1>Phone</h1>
-      <p class="large-contact">208-970-4179</p>
-      <button onclick="copyPhone()"class="button contact-button" role="button"><span class="text">Copy Phone</span></button>
-    </div>
-
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('Particles config loaded successfully!');
+        });
+    </script>
 </body>
 </html>

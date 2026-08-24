@@ -36,7 +36,6 @@ body, html {
     background-color: #111827; 
     padding: 16px; 
     border-radius: 16px;
-    display: block;
     width: 100%;
     min-height: 250px;
     box-sizing: border-box;
@@ -44,6 +43,10 @@ body, html {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
                 inset 0 1px 1px rgba(255, 255, 255, 0.05); 
     overflow: hidden; 
+    
+    /* THE FIX: Change from display: block to flex so the inner screen stretches */
+    display: flex;
+    flex-direction: column;
 }
 
 /* 2. THE CUSTOM DIGITAL CURSOR (Standard Arrow) */
@@ -81,6 +84,10 @@ body, html {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
+    
+    /* THE FIX: Forces the screen to grow and fill the bezel */
+    flex-grow: 1; 
+    
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -92,8 +99,6 @@ body, html {
     position: relative;
     overflow: hidden;
     transition: box-shadow 0.8s ease-in-out 0.1s, border 0.8s ease-in-out 0.1s;
-    
-    /* ADDED cursor: none; HERE INSTEAD */
     cursor: none; 
 }
 
@@ -281,4 +286,153 @@ body, html {
     
     /* Changed from -1 to 0 so it sits ON TOP of the body background */
     z-index: 0; 
+}
+
+/* --- RESUME PAGE SPECIFIC LAYOUT --- */
+.resume-layout {
+    display: grid;
+    /* Forces the PDF to take up all available space (1fr), locking the sidebar to exactly 350px wide */
+    grid-template-columns: 1fr 350px; 
+    gap: 32px;
+    padding: 40px 40px;
+    max-width: 1600px; /* Widened to give the PDF maximum breathing room */
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 100vh; /* Fills the vertical screen */
+    align-items: start;
+    position: relative;
+    z-index: 10;
+}
+
+/* The clean, borderless PDF container */
+.pdf-container {
+    width: 100%;
+    height: 85vh; /* Stretches massive vertically */
+    background-color: #323639; /* The standard dark gray of a native PDF viewer */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 20; 
+}
+
+.pdf-object {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.resume-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Mobile Responsiveness: Stacks the buttons under the PDF on small screens */
+@media (max-width: 1024px) {
+    .resume-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .pdf-container {
+        height: 75vh;
+    }
+}
+
+/* --- ABOUT PAGE LAYOUT --- */
+.about-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* 300px sidebar, the rest stretches */
+    gap: 32px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    align-items: start;
+}
+
+.about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* OVERRIDE: For screens meant to be read, not played with */
+.static-screen {
+    cursor: auto !important; /* Restores the native mouse pointer */
+    justify-content: flex-start; /* Aligns content to the top */
+    text-align: left;
+}
+
+/* The Image Placeholder */
+.profile-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Keeps it a perfect square */
+    border: 2px dashed rgba(0, 120, 212, 0.5); /* Azure blue dashed line */
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.placeholder-text {
+    color: rgba(0, 120, 212, 0.7);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+/* --- DOSSIER ARTICLE TEXT FORMATTING --- */
+.article-screen {
+    padding: 40px;
+}
+
+.article-content {
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Sits above the glare */
+}
+
+.article-header {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 120, 212, 0.3);
+    padding-bottom: 5px;
+}
+
+.article-header:first-child {
+    margin-top: 0;
+}
+
+.article-text {
+    color: #D1D5DB; /* A soft, readable gray */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.article-list {
+    color: #D1D5DB;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.article-list li {
+    margin-bottom: 10px;
+}
+
+.article-list strong {
+    color: #0078D4; /* Highlights the bold words in Azure blue */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr; /* Stacks the columns on mobile */
+    }
 }
