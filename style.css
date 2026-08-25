@@ -360,7 +360,6 @@ body, html {
 
 /* OVERRIDE: For screens meant to be read, not played with */
 .static-screen {
-    cursor: auto !important; /* Restores the native mouse pointer */
     justify-content: flex-start; /* Aligns content to the top */
     text-align: left;
 }
