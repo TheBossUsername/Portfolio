@@ -49,3 +49,29 @@ if (emailMonitor) {
         });
     });
 }
+
+/* --- FETCH VISITOR COUNTER --- */
+const counterElement = document.getElementById('visitor-counter');
+
+if (counterElement) {
+    // When running locally, use localhost:7071/api/GetCounter
+    // In production on Azure Static Web Apps, '/api/GetCounter' routes automatically
+    const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? 'http://localhost:7071/api/GetCounter'
+        : '/api/GetCounter';
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            counterElement.innerText = data.count;
+        })
+        .catch(error => {
+            console.error('Error fetching visitor count:', error);
+            counterElement.innerText = 'N/A';
+        });
+}

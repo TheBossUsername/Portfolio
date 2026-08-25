@@ -1,0 +1,6 @@
+# Azure Functions local settings & secrets
+local.settings.json
+.vscode/
+__pycache__/
+.env
+.venv/
