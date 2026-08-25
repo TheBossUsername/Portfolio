@@ -43,10 +43,10 @@ body, html {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
                 inset 0 1px 1px rgba(255, 255, 255, 0.05); 
     overflow: hidden; 
-    
-    /* THE FIX: Change from display: block to flex so the inner screen stretches */
     display: flex;
     flex-direction: column;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* 2. THE CUSTOM DIGITAL CURSOR (Standard Arrow) */
@@ -384,7 +384,6 @@ body, html {
     letter-spacing: 2px;
 }
 
-/* --- DOSSIER ARTICLE TEXT FORMATTING --- */
 .article-screen {
     padding: 40px;
 }

@@ -13,34 +13,39 @@
     <!-- The Modular Grid Wrapper -->
     <main class="bento-dashboard">
 
-            <a class="monitor-bezel monitor-featured  monitor-tall monitor-wide">
-          <div class="monitor-screen">
+      <!-- THE ELEVATOR PITCH MONITOR -->
+        <div class="monitor-bezel monitor-featured monitor-wide">
+            <!-- Used flex-row inline styling to sit the image next to the text -->
+            <div class="monitor-screen static-screen" style="flex-direction: row; flex-wrap: wrap; text-align: left; gap: 24px; align-items: center;">
+                
+                <!-- The Glare & Backgrounds -->
+                <div class="glass-glare"></div>
+                <div class="line line-1"></div>
 
-              <div class="glass-edge-bleed"></div>
+                <!-- The Profile Image Placeholder -->
+                <div class="profile-placeholder" style="width: 150px; height: 150px; flex-shrink: 0; margin-bottom: 0;">
+                    <span class="placeholder-text">[ IMG_OFFLINE ]</span>
+                </div>
+                
+                <!-- The Short Intro Text -->
+                <div style="z-index: 2; flex: 1; min-width: 250px;">
+                    <h2 class="terminal-text" style="font-size: 1.5rem; margin-top: 0;">Hi, I'm Brenden Scott</h2>
+                    
+                    <p class="screen-data" style="margin-top: 12px; line-height: 1.6; color: #D1D5DB;">
+                        Computer Science graduate and Systems Administrator actively transitioning into a Cloud Engineering role within the Microsoft Cloud ecosystem. I specialize in building scalable, automated infrastructure that dynamically resolves issues.
+                    </p>
 
-              <!-- The hidden dust and smudges revealed by the mouse glow -->
-              <div class="glass-imperfections"></div>
+                    <p class="screen-data" style="margin-top: 12px; color: #D1D5DB;">
+                        <strong>Core Focus:</strong> Azure Infrastructure, Microsoft 365, DevOps.
+                        <br>
+                        <strong>Currently Studying:</strong> AZ-104 (Microsoft Certified: Azure Administrator Associate).
+                    </p>
+                </div>
 
-              <!-- The ambient room light reflecting off the glass -->
-              <div class="glass-glare"></div>
-              
-              <!-- The Fake CRT Mouse Cursor -->
-              <div class="crt-cursor"></div> 
+            </div>
+        </div>
 
-              <div class="shine"></div>
-            
-            <!-- The Animated Border Lines -->
-            <div class="line line-1"></div>
-              <!-- Your Tilting Content -->
-              <div class="screen-content" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-scale="1.03" data-tilt-mobile="false">
-                  <h2 class="terminal-text">Hi, I'm Brenden Scott</h2>
-                  <p class="screen-data">Systems Administrator transitioning to cloud engineering, currently specializing in the Azure ecosystem.</p>
-              </div>
-
-          </div>
-      </a>
-
-      <a href="./projects.html" class="monitor-bezel monitor-featured">
+      <a href="/projects" class="monitor-bezel monitor-featured">
           <div class="monitor-screen">
 
               <div class="glass-edge-bleed"></div>
@@ -66,7 +71,7 @@
       </a>
       
 
-      <a href="./contact.html" class="monitor-bezel monitor-featured">
+      <a href="/contact" class="monitor-bezel monitor-featured">
           <div class="monitor-screen">
 
               <div class="glass-edge-bleed"></div>
@@ -93,7 +98,7 @@
           </div>
       </a>
 
-      <a href="./resume.html" class="monitor-bezel monitor-featured monitor-wide">
+      <a href="/resume" class="monitor-bezel monitor-featured monitor-wide">
           <div class="monitor-screen">
 
               <div class="glass-edge-bleed"></div>
