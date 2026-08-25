@@ -385,6 +385,7 @@ body, html {
 
 .article-screen {
     padding: 40px;
+    cursor: auto;
 }
 
 .article-content {
@@ -433,4 +434,21 @@ body, html {
     .about-layout {
         grid-template-columns: 1fr; /* Stacks the columns on mobile */
     }
+}
+
+/* --- CURSOR FIXES --- */
+/* 1. Force the native mouse to hide on all interactive monitors (links) */
+.monitor-bezel,
+.monitor-bezel .terminal-text,
+.monitor-bezel .screen-data {
+    cursor: none !important;
+}
+
+/* 2. RESTORE the native mouse specifically for the reading screens (Dossier & PDF) */
+.static-screen,
+.static-screen .terminal-text,
+.static-screen .screen-data,
+.static-screen .article-text,
+.static-screen .article-header {
+    cursor: auto !important; 
 }
