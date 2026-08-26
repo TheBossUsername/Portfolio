@@ -1,0 +1,59 @@
+name: 'Deploy Backend'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infra/**'
+  workflow_dispatch: 
+
+defaults:
+  run:
+    shell: bash
+    working-directory: infra
+
+jobs:
+  terraform:
+    name: 'Terraform Init & Apply'
+    runs-on: ubuntu-latest
+    # Only run this job if the repository is the expected one or if it's a manual dispatch 
+    # If you cloned this repo and want automatic deployments, you must update this condition to match your repository name.
+    if: github.repository == 'BrendenScott/Portfolio' || github.event_name == 'workflow_dispatch'
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Azure via OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init (Dynamic Backend)
+        run: |
+          terraform init \
+            -backend-config="resource_group_name=rg-portfolio-prod-state" \
+            -backend-config="storage_account_name=${{ vars.TF_STORAGE_ACCOUNT }}" \
+            -backend-config="container_name=tfstate" \
+            -backend-config="key=terraform.tfstate"
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
+      - name: Sync SWA Token to GitHub Secrets
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          TOKEN=$(terraform output -raw swa_deployment_token)
+          echo "::add-mask::$TOKEN"
+          echo "$TOKEN" | gh secret set AZURE_STATIC_WEB_APPS_API_TOKEN --repo ${{ github.repository }}
