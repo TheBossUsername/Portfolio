@@ -1,4 +1,4 @@
 project_prefix = "portfolio"
 environment    = "prod"
-location       = "eastus"
+location       = "westus2"
 custom_domain_name = "www.brendenscott.cloud"
