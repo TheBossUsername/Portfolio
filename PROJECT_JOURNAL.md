@@ -38,3 +38,10 @@ I created a total visitor counter with python that linked to the Cosmos Database
 
 **The Solution:**
 I added a function to the JavaScript file that uses the browser's temporary memory to remember if it has already fetched the visitor count for the current session. When the page is refreshed, it just displays that saved number instead of calling the API again to update the database. Closing and re opening the browser adds to the count but it is at least more accurate then adding it per page refresh.
+
+## 6. Infrastructure as Code
+**The Problem:** 
+The website was complete, but it was built out maunually through Azure and for the challenge and my own own learning I needed to build everything I could through Infrastructure as Code (IAC)
+
+**The Solution:**
+The challenge reccommends using ARM Templates but I have a pretty good understanding of them already and wanted to learn a cloud agnostic code so I chose Terraform.
