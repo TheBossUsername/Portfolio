@@ -4,6 +4,10 @@ A fully automated, serverless personal portfolio website hosted on Microsoft Azu
 
 This project is built using the principles of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/).
 
+## 📖 The Journey & Lessons Learned
+
+Building this project involved navigating several challenges. You can read my full write-up on the troubleshooting process and what I learned here: [PROJECT_JOURNAL.md](PROJECT_JOURNAL.md)
+
 ## 🏗️ Architecture Overview
 
 - **Frontend:** HTML/CSS/JS hosted on an **Azure Static Web App (SWA)**.
@@ -128,3 +132,4 @@ To run the Azure Function locally:
    cd api
    func start
    ```
+
