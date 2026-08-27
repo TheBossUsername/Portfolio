@@ -6,6 +6,7 @@ resource "azurerm_static_web_app" "swa" {
   sku_size            = "Free"
   app_settings = {
     "CosmosDbConnectionString" = azurerm_cosmosdb_account.db.primary_sql_connection_string
+  }
 }
 
 resource "azurerm_static_web_app_custom_domain" "domain" {
