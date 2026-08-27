@@ -71,10 +71,18 @@ Write-Host "`n>>> [6/6] Configuring Identity & GitHub OIDC Federation..." -Foreg
 $SUBSCRIPTION_ID = az account show --query id -o tsv
 $TENANT_ID = az account show --query tenantId -o tsv
 
-# Automatically fetch the repository full name via GitHub CLI
-$REPO_FULL_NAME = gh repo view --json nameWithOwner -q ".nameWithOwner" 2>$null
-if (-not $REPO_FULL_NAME) {
-    Write-Host "[ERROR] Could not determine GitHub repository name via 'gh'. Please ensure you are in a cloned git repo linked to GitHub." -ForegroundColor Red
+# Automatically fetch owner and repository details including immutable IDs via GitHub API
+Write-Host "Fetching repository metadata and immutable IDs from GitHub..." -ForegroundColor Gray
+$repoJson = gh api repos/:owner/:repo
+$repoObj = $repoJson | ConvertFrom-Json
+
+$ownerLogin = $repoObj.owner.login
+$ownerId    = $repoObj.owner.id
+$repoName   = $repoObj.name
+$repoId     = $repoObj.id
+
+if (-not $ownerLogin -or -not $ownerId -or -not $repoName -or -not $repoId) {
+    Write-Host "[ERROR] Could not determine GitHub repository metadata via 'gh api'. Please ensure you are in a cloned git repo linked to GitHub." -ForegroundColor Red
     exit 1
 }
 
@@ -93,13 +101,13 @@ az role assignment create --role "Contributor" --scope "/subscriptions/$SUBSCRIP
 Write-Host "Establishing OpenID Connect (OIDC) Federated Trust with GitHub..." -ForegroundColor Gray
 $CRED_NAME = "github-action-federation-$RANDOM_ID"
 
-# Build payload hashtable and write to a temporary file to bypass PowerShell quoting issues
+# Build payload hashtable with the immutable OIDC subject format including both IDs
 $CredPayload = @{
-    name        = $CRED_NAME
-    issuer      = "https://token.actions.githubusercontent.com"
-    subject     = "repo:${REPO_FULL_NAME}:ref:refs/heads/main"
-    description = "OIDC Federation for GitHub Actions main branch"
-    audiences   = @("api://AzureADTokenExchange")
+    name         = $CRED_NAME
+    issuer       = "https://token.actions.githubusercontent.com"
+    subject      = "repo:${ownerLogin}@${ownerId}/${repoName}@${repoId}:ref:refs/heads/main"
+    description  = "OIDC Federation for GitHub Actions main branch"
+    audiences    = @("api://AzureADTokenExchange")
 }
 $ParametersJson = $CredPayload | ConvertTo-Json -Depth 3
 $TempJsonPath = [System.IO.Path]::GetTempFileName()
