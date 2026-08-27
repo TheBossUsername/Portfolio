@@ -17,18 +17,13 @@ app = func.FunctionApp()
 def GetCounter(req: func.HttpRequest, inputDocument: func.DocumentList, outputDocument: func.Out[func.Document]) -> func.HttpResponse:
     
     if not inputDocument:
-        return func.HttpResponse("Database item not found", status_code=404)
-    
-    # Grab the item and convert it to a standard dictionary
-    doc = inputDocument[0].to_dict()
-    
-    # Increment the visitor count
-    doc['count'] += 1
-    
-    # Push the updated data back into the Cosmos DB output binding
+        doc = {"id": "1", "count": 1}
+    else:
+        doc = inputDocument[0].to_dict()
+        # Increment the visitor count
+        doc['count'] += 1
     outputDocument.set(func.Document.from_dict(doc))
     
-    # Return the new count to your frontend
     return func.HttpResponse(
         json.dumps({"count": doc['count']}),
         mimetype="application/json",
